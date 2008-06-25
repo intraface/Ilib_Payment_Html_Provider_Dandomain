@@ -10,16 +10,22 @@ $checksum = md5($request_get['OrderID'].'+'.$request_get['Amount'].'+'.$verifica
             <input type="hidden" name="OrderID" value="%%OrderID%%" >
             <input type="hidden" name="Amount" value="%%Amount%%" >
             <input type="hidden" name="SessionId" value="<?php echo session_id(); ?>" >
-            <input type="hidden" name="Checksum" value="<?php echo $checksum; ?>">  
-            <input type="hidden" name="OKURL" title="OKURL" value="<?php echo $ok_url; ?>" >
-            <input type="hidden" name="FAILURL" title="FAILURL" value="<?php echo $error_url; ?>" >    
+            <input type="hidden" name="Checksum" value="<?php echo $checksum; ?>">
+            <input type="hidden" name="OKURL" value="<?php echo $ok_url; ?>" >
+            <input type="hidden" name="FAILURL" value="<?php echo $error_url; ?>" >
             
             
             <p><?php e(__('You are about to pay for your order')); ?></p> 
             <p><strong>%%Amount%%</strong> <?php e(__('will be withdrawed from your card.')); ?></p>
         
             <div id="cards_container">
-                Kort?
+                <?php
+                if(isset($creditcard_logos) && is_array($creditcard_logos)) {
+                    foreach($creditcard_logos AS $logo) {
+                        echo '<img src="'.$secure_tunnel_url.$logo['url'].'" class="creditcard-logo" width="'.$logo['width'].'" height="'.$logo['height'].'" style="margin: 4px;" />';
+                    }
+                }
+                ?>
             </div>
             
             <div id="formrow">

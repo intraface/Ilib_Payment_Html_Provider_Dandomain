@@ -34,6 +34,16 @@ class Ilib_Payment_Html_Provider_Dandomain_Input extends Ilib_Payment_Html_Input
     {
         return 'Ilib/Payment/Html/Provider/Dandomain/templates/payment-input-tpl.php';
     }
+    
+    /**
+     * Returns the url to set in front of local urls, to make it secured
+     * 
+     * @return string secure tunnel url
+     */
+    public function getSecureTunnelUrl()
+    {
+        return 'https://pay.dandomain.dk/securetunnel-bin.asp?url=';
+    }
 }
 
 

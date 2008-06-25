@@ -33,15 +33,15 @@ class Ilib_Payment_Html_Provider_Dandomain_Postprocess extends Ilib_Payment_Html
          * This one is not really good!
          */
         
-        if($get['orderid'] != $payment_target['id']) {
-            throw new Exception('The order id is not valid!');
+        if($get['OrderID'] != $payment_target['id']) {
+            throw new Exception('The order id is not valid! ('.$get['OrderID'].', '.$payment_target['id'].')');
         }
         
         $this->amount = $payment_target['arrears'];
         $this->order_number = $get['orderid'];
         $this->pbs_status = '000'; /* On dandomain the call is only made on success */
         $this->transaction_number = $get['transact'];
-        $this->transaction_status = '000'; /* On dandomain the call is only made on success */
+        $this->transaction_status = '-1'; /* On dandomain the call is only made on success */
         
         return true;
     } 
