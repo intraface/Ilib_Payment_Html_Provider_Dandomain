@@ -16,8 +16,19 @@ $checksum = md5($request_get['OrderID'].'+'.$request_get['Amount'].'+'.$verifica
             
             
             <p><?php e(__('You are about to pay for your order')); ?></p> 
-            <p><strong>%%Amount%%</strong> <?php e(__('will be withdrawed from your card.')); ?></p>
-        
+            <p>
+                <?php
+                $currencies = array(
+                    '208' => 'DKK',
+                    '978' => 'EUR',
+                    '840' => 'USD');
+                if(isset($currencies[$request_get['CurrencyID']])) {
+                    echo $currencies[$request_get['CurrencyID']];
+                }
+                ?>
+                <strong>%%Amount%%</strong> <?php e(__('will be withdrawed from your card.')); ?>
+            </p>
+            
             <div id="cards_container">
                 <?php
                 if(isset($creditcard_logos) && is_array($creditcard_logos)) {
