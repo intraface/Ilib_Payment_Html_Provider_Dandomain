@@ -9,6 +9,15 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL
  */
 
+/**
+ * To control Dandomain <www.dandomain.dk> input page for online payments
+ * 
+ * @author sune jensen <sj@sunet.dk>
+ * @version 0.0.1
+ * @package Payment_Html_Provider_Dandomain
+ * @category Payment
+ * @license http://www.gnu.org/licenses/lgpl.html LGPL
+ */
 class Ilib_Payment_Html_Provider_Dandomain_Input extends Ilib_Payment_Html_Input
 {
     

@@ -11,6 +11,15 @@
 
 require_once 'Ilib/Payment/Html/Prepare.php';
 
+/**
+ * Prepares Dandomain <www.dandomain.dk> online payments with html template
+ * 
+ * @author sune jensen <sj@sunet.dk>
+ * @version 0.0.1
+ * @package Payment_Html_Provider_Dandomain
+ * @category Payment
+ * @license http://www.gnu.org/licenses/lgpl.html LGPL
+ */
 class Ilib_Payment_Html_Provider_Dandomain_Prepare extends Ilib_Payment_Html_Prepare
 {
     

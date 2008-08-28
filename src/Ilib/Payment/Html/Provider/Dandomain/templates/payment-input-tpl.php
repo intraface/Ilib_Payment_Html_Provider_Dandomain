@@ -1,4 +1,14 @@
 <?php
+/**
+ * HTML input page for payment
+ * 
+ * @author sune jensen <sj@sunet.dk>
+ * @version 0.0.1
+ * @package Payment_Html_Provider_Dandomain
+ * @category Payment
+ * @license http://www.gnu.org/licenses/lgpl.html LGPL
+ */
+
 // md5(OrderID & "+" & Amount & "+" & ChecksumSecretKey & "+" & CurrencyID)
 $checksum = md5($request_get['OrderID'].'+'.$request_get['Amount'].'+'.$verification_key.'+'.$request_get['CurrencyID']);
 ?>
