@@ -38,7 +38,7 @@ class Ilib_Payment_Html_Provider_Dandomain_Postprocess extends Ilib_Payment_Html
         }
         
         $this->amount = $payment_target['arrears'];
-        $this->order_number = $get['orderid'];
+        $this->order_number = $get['OrderID'];
         $this->pbs_status = '000'; /* On dandomain the call is only made on success */
         $this->transaction_number = $get['transact'];
         $this->transaction_status = '-1'; /* On dandomain the call is only made on success */

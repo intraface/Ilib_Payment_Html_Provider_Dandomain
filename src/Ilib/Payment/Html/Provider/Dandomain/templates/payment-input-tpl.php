@@ -5,14 +5,15 @@ $checksum = md5($request_get['OrderID'].'+'.$request_get['Amount'].'+'.$verifica
     <div id="payment-input">
         <form action="https://pay.dandomain.dk/securecapture.asp" method="post" autocomplete="off" id="payment_details">
 
-            <input type="hidden" name="CurrencyID" title="CurrencyID" value="%%CurrencyID%%">
-            <input type="hidden" name="MerchantNumber" value="%%MerchantNumber%%" >
-            <input type="hidden" name="OrderID" value="%%OrderID%%" >
-            <input type="hidden" name="Amount" value="%%Amount%%" >
-            <input type="hidden" name="SessionId" value="<?php echo session_id(); ?>" >
-            <input type="hidden" name="Checksum" value="<?php echo $checksum; ?>">
-            <input type="hidden" name="OKURL" value="<?php echo $ok_url; ?>" >
-            <input type="hidden" name="FAILURL" value="<?php echo $error_url; ?>" >
+            <input type="hidden" name="CurrencyID" title="CurrencyID" value="%%CurrencyID%%" />
+            <input type="hidden" name="MerchantNumber" value="%%MerchantNumber%%" />
+            <input type="hidden" name="OrderID" value="%%OrderID%%" />
+            <input type="hidden" name="Amount" value="%%Amount%%" />
+            <input type="hidden" name="SessionId" value="<?php echo session_id(); ?>" />
+            <input type="hidden" name="Checksum" value="<?php echo $checksum; ?>" />
+            <input type="hidden" name="OKURL" value="<?php echo $ok_url; ?>" />
+            <input type="hidden" name="FAILURL" value="<?php echo $error_url; ?>" />
+            <input type="hidden" name="OKStatusURL" value="<?php echo $postprocess_url; ?>" />
             
             
             <p><?php e(__('You are about to pay for your order')); ?></p> 
