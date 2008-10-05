@@ -20,8 +20,6 @@
  */
 class Ilib_Payment_Html_Provider_Dandomain_Input extends Ilib_Payment_Html_Input
 {
-    
-    
     /**
      * Constructor
      * 
@@ -54,6 +52,3 @@ class Ilib_Payment_Html_Provider_Dandomain_Input extends Ilib_Payment_Html_Input
         return 'https://pay.dandomain.dk/securetunnel-bin.asp?url=';
     }
 }
-
-
-?>

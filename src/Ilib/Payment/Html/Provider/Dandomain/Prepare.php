@@ -8,7 +8,6 @@
  * @category Payment
  * @license http://www.gnu.org/licenses/lgpl.html LGPL
  */
-
 require_once 'Ilib/Payment/Html/Prepare.php';
 
 /**
@@ -22,12 +21,13 @@ require_once 'Ilib/Payment/Html/Prepare.php';
  */
 class Ilib_Payment_Html_Provider_Dandomain_Prepare extends Ilib_Payment_Html_Prepare
 {
-    
     /**
      * Contructor
      * 
      * @param string $merchant merchant number
      * @param string $language the language used in the payment
+     * 
+     * @return void
      */
     public function __construct($merchant, $verificaton_key, $session_id)
     {
@@ -48,7 +48,7 @@ class Ilib_Payment_Html_Provider_Dandomain_Prepare extends Ilib_Payment_Html_Pre
             'EUR' => 978,
             'USD' => 840);
         
-        if(empty($currency[$this->payment_values['currency']])) {
+        if (empty($currency[$this->payment_values['currency']])) {
             throw new Exception('Unknown currency "'.$this->payment_values['currency'].'"');
         }
         $this->payment_values['currency'] = $currency[$this->payment_values['currency']];
@@ -73,6 +73,3 @@ class Ilib_Payment_Html_Provider_Dandomain_Prepare extends Ilib_Payment_Html_Pre
         return 'Dandomain';
     }
 }
-
-
-?>

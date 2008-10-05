@@ -8,7 +8,6 @@
  * @category Payment
  * @license http://www.gnu.org/licenses/lgpl.html LGPL
  */
-
 require_once 'Ilib/Payment/Html/Postprocess.php';
 
 /**
@@ -22,12 +21,13 @@ require_once 'Ilib/Payment/Html/Postprocess.php';
  */
 class Ilib_Payment_Html_Provider_Dandomain_Postprocess extends Ilib_Payment_Html_Postprocess
 {
-    
     /**
      * Contructor
      * 
      * @param string $merchant merchant number
      * @param string $language the language used in the payment
+     * 
+     * @return void
      */
     public function __construct($merchant, $verification_key, $session_id)
     {    
@@ -37,21 +37,17 @@ class Ilib_Payment_Html_Provider_Dandomain_Postprocess extends Ilib_Payment_Html
     /**
      * Sets the payment response 
      * 
-     * @param array $post all POST params given in the response
-     * @param array $get all GET params given in the response
-     * @param array $session all session variables in the response.
+     * @param array $post           all POST params given in the response
+     * @param array $get            all GET params given in the response
+     * @param array $session        all session variables in the response.
      * @param array $payment_target the payment target, e.g. the order
+     * 
      * @return boolean true on success.
      */
-    public function setPaymentResponse($post, $get, $session, $payment_target) {
-        
-        
-        /**
-         * @todo: We need some kind of validation check.
-         * This one is not really good!
-         */
-        
-        if($get['OrderID'] != $payment_target['id']) {
+    public function setPaymentResponse($post, $get, $session, $payment_target) 
+    {
+        // @todo: We need some kind of validation check. This one is not really good!
+        if ($get['OrderID'] != $payment_target['id']) {
             throw new Exception('The order id is not valid! ('.$get['OrderID'].', '.$payment_target['id'].')');
         }
         
@@ -64,6 +60,3 @@ class Ilib_Payment_Html_Provider_Dandomain_Postprocess extends Ilib_Payment_Html
         return true;
     } 
 }
-
-
-?>
