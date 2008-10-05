@@ -24,7 +24,7 @@ $checksum = md5($request_get['OrderID'].'+'.$request_get['Amount'].'+'.$verifica
             <input type="hidden" name="OKURL" value="<?php echo $ok_url; ?>" />
             <input type="hidden" name="FAILURL" value="<?php echo $error_url; ?>" />
             <input type="hidden" name="OKStatusURL" value="<?php echo $postprocess_url; ?>" />
-            
+            <input type="hidden" name="FAILStatusURL" value="<?php echo $postprocess_url; ?>" />
             
             <p><?php e(__('You are about to pay for your order')); ?></p> 
             <p>

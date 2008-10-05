@@ -53,10 +53,22 @@ class Ilib_Payment_Html_Provider_Dandomain_Postprocess extends Ilib_Payment_Html
         
         $this->amount = $payment_target['arrears'];
         $this->order_number = $get['OrderID'];
-        $this->pbs_status = '000'; /* On dandomain the call is only made on success */
-        $this->transaction_number = $get['transact'];
-        $this->transaction_status = '-1'; /* On dandomain the call is only made on success */
         
+        if(!empty($get['errorcode'])) {
+            $this->transaction_status = $get['errorcode'];
+            $this->transaction_number = 0;
+            if(!empty($get['ActionCode'])) {
+                $this->pbs_status = $get['ActionCode'];
+            }
+            else {
+                $this->pbs_status = '';
+            }
+        }
+        else {
+            $this->pbs_status = '000'; 
+            $this->transaction_status = '-1';
+            $this->transaction_number = $get['transact'];
+        }
         return true;
     } 
 }
