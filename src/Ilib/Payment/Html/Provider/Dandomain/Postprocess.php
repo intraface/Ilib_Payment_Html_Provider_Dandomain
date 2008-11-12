@@ -53,6 +53,10 @@ class Ilib_Payment_Html_Provider_Dandomain_Postprocess extends Ilib_Payment_Html
         
         $this->amount = $payment_target['arrears'];
         $this->order_number = $get['OrderID'];
+        /**
+         * @todo currency is set from default currency in payment target. Not really good, as it is possible to make it so the user can change currency in payment...
+         */
+        $this->currency = $payment_target['default_currency'];
         
         if(!empty($get['errorcode'])) {
             $this->transaction_status = $get['errorcode'];
