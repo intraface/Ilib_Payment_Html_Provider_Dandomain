@@ -51,7 +51,7 @@ class Ilib_Payment_Html_Provider_Dandomain_Postprocess extends Ilib_Payment_Html
             throw new Exception('The order id is not valid! ('.$get['OrderID'].', '.$payment_target['id'].')');
         }
         
-        $this->amount = $payment_target['arrears'];
+        $this->amount = $payment_target['arrears'][$payment_target['default_currency']];
         $this->order_number = $get['OrderID'];
         /**
          * @todo currency is set from default currency in payment target. Not really good, as it is possible to make it so the user can change currency in payment...
